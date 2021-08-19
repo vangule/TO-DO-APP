@@ -81,7 +81,7 @@ const Todo = () => {
                     );
                 })
             }
-           <button onClick={removeAll}>Remove All</button>
+           <button onClick={removeAll}>checklist</button>
           </div>
         </div>
         <ToastContainer />

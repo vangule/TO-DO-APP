@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
+body{
+  background-color: #3e0451;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-div{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  position: relative;
+  top: 5rem;
+}
+
+img{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+}
+ figure{
+   text-align: center;
+   font-size: large;
+   font-family: sans-serif;
+   color: white;
+ }
+
+ input{
+   width: 15rem;
+   height: 2rem;
+   color: #911fb5;
+   border: none;
+   border-radius: 0.2rem;
+   padding-left: 0.5rem;
+   font-size: medium;
+   font-family: sans-serif;
+   text-transform: capitalize;
+ }
+
+ .all-item{
+    display: block;
+ }
+
+ .single-item{
+   width: 15rem;
+   height: 2rem;
+   background-color: #911fb5;  
+   border-radius: 0.2rem;
+   color: white;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 0.8rem;
+   text-transform: capitalize;
+   padding: 0 5px;
+}
+
+button{
+  width: 6rem;
+  height: 2rem;
+  background-color: grey;
   color: white;
+  border-radius: 0.2rem;
+  border: 1px solid white;
+  position: relative;
+  left: 5rem;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover{
+  background-color: #911fb5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.edit-icon{
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: grey;
 }
+
+.edit-icon:hover{
+  color: greenyellow;
+}
+
+.delete-icon{
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: grey;
+  margin-left: 4px;
+}
+
+.delete-icon:hover{
+  color: red;
+}
+ 
+.add-item-icon{
+  font-size: 1.3rem;
+  color: lightgrey;
+  position: relative;
+  margin: 0 0 0 -1.8rem;
+  cursor: pointer;
+}
+
+.add-item-icon:hover{
+  color: green;
+}
+

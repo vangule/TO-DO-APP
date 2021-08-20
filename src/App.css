@@ -89,16 +89,24 @@ button:hover{
   color: greenyellow;
 }
 
-.delete-icon{
+.edit-update-icon{
   font-size: 1.3rem;
   cursor: pointer;
   color: grey;
+  color: green;
+  position: relative;
+  margin: 0 0 0 -1.8rem;
+}
+
+.delete-icon{
+  font-size: 1.3rem;
+  cursor: pointer;
   margin-left: 4px;
   color: red;
 }
 
 .delete-icon:hover{
-  color: red;
+  color: grey;
 }
  
 .add-item-icon{

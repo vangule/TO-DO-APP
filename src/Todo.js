@@ -16,8 +16,12 @@ const getLocalItems = () => {
 const Todo = () => {
     const [inputData, setInputData] = useState('');
     const [items, setItems] = useState(getLocalItems());
+    const [isToggle, setIsToggle] = useState(true);
+    const [isEditItem, setIsEditItem] =useState(null);
 
     const addItem = () => {
+        const allInputData = { id : new Date().getTime().toString(), name: inputData}
+        console.log(allInputData)
         if(!inputData){
             // alert("add item");
             toast.warn("Please add input first", {
@@ -25,15 +29,27 @@ const Todo = () => {
                 autoClose: 8000,
                 closeOnClick: true
             });
+        }else if(inputData && !isToggle){   
+         setItems(
+             items.map((elem) => {
+                 if(elem.id === isEditItem){
+                     return { ...elem, name: inputData};
+                 }
+                 return elem;
+             })
+         )
+         setIsToggle(true);
+         setInputData('');
+         setIsEditItem(null);
         }else{
-            setItems([...items, inputData]);
+            setItems([...items, allInputData]);
             setInputData('');
         }
     }
 
-    const removeMe = (id) => {
-        const myNewArray = items.filter((ele, ind) => {
-            return id !== ind;
+    const removeMe = (index) => {
+        const myNewArray = items.filter((ele) => {
+            return index !== ele.id;
         })
         setItems(myNewArray);
     }
@@ -42,8 +58,14 @@ const Todo = () => {
         setItems([]);
     }
 
-    const editMe = () => {
-
+    const editMe = (id) => {
+        const newEditArr = items.find((ele) => {
+            return id === ele.id
+        })
+        console.log(newEditArr);
+       setIsToggle(false);
+       setInputData(newEditArr.name);
+       setIsEditItem(id);
     }
 
      useEffect(() => {
@@ -56,25 +78,31 @@ const Todo = () => {
           <div className="child-div">
            <figure>
              <img src={todo} alt="icon"/><br/>
-             <figurecaption>Add your list here</figurecaption>
+             <div>Add your list here</div>
            </figure>
            <input type="text" placeholder="Add items..."
            value={inputData}
             onChange={(e) => setInputData(e.target.value) }
             />
-           <i className="fa fa-plus add-item-icon" title="Add Item" onClick={addItem} ></i>
+
+            {
+                isToggle ?   <i className="fa fa-plus add-item-icon" title="Add Item" onClick={addItem} ></i> :
+                             <i className="fa fa-edit edit-update-icon" title="Update Item" onClick={addItem}></i>   
+            }
+
+         
            <br/><br/>
 
            {/* All item displays here.. */}
             {
-                items.map((elem, ind) => {
+                items.map((elem) => {
                     return(
-                        <div className="all-items">
+                        <div className="all-items" key={elem.id}> 
                         <div className="single-item">
-                             <div>{elem}</div>
+                             <div>{elem.name}</div>
                              <div className="e-d-container"> 
-                             <i className="fa fa-edit edit-icon" title="Edit Item" onClick={() => editMe(ind)}></i>
-                             <i className="fa fa-trash delete-icon" title="Remove Item" onClick={() => removeMe(ind)}></i>
+                             <i className="fa fa-edit edit-icon" title="Edit Item" onClick={() => editMe(elem.id)}></i>
+                             <i className="fa fa-trash delete-icon" title="Remove Item" onClick={() => removeMe(elem.id)}></i>
                              </div>
                         </div>     
                     </div>

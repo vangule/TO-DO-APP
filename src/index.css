@@ -11,3 +11,127 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body{
+  background-color: #3e0451;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.main-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 5rem;
+}
+
+img{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+}
+ figure{
+   text-align: center;
+   font-size: large;
+   font-family: sans-serif;
+   color: white;
+ }
+
+ input{
+   width: 15rem;
+   height: 2rem;
+   color: #911fb5;
+   border: none;
+   border-radius: 0.2rem;
+   padding-left: 0.5rem;
+   font-size: medium;
+   font-family: sans-serif;
+   text-transform: capitalize;
+ }
+
+ .all-item{
+    display: block;
+ }
+
+ .single-item{
+   width: 15rem;
+   height: 2rem;
+   background-color: white;  
+   border-radius: 0.2rem;
+   color: black;
+   font-weight: 600;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 0.8rem;
+   text-transform: capitalize;
+   padding: 0 5px;
+}
+
+.single-item:hover{
+  background-color: #911fb5;
+}
+
+button{
+  width: 7rem;
+  height: 2rem;
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+  position: relative;
+  left: 5rem;
+  text-transform: uppercase;
+}
+
+button:hover{
+  background-color: #911fb5;
+  color: white;
+}
+
+.edit-icon{
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: grey;
+  color: green;
+}
+
+.edit-icon:hover{
+  color: greenyellow;
+}
+
+.edit-update-icon{
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: grey;
+  color: green;
+  position: relative;
+  margin: 0 0 0 -1.8rem;
+}
+
+.delete-icon{
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 4px;
+  color: red;
+}
+
+.delete-icon:hover{
+  color: grey;
+}
+ 
+.add-item-icon{
+  font-size: 1.3rem;
+  color: lightgrey;
+  position: relative;
+  margin: 0 0 0 -1.8rem;
+  cursor: pointer;
+}
+
+.add-item-icon:hover{
+  color: green;
+}
+
